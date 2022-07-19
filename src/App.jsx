@@ -18,16 +18,16 @@ function App() {
             <Switch>
               <Route exact path="/">
                 <Typography variant="h2" fontWeight="bold">
-                  Quiz App
+                  Nology Logic Quiz
                 </Typography>
                 <Setting />
               </Route>
-              <Route path="/question">
+              {/* <Route path="/question">
                 <Question />
               </Route>
               <Route path="/score">
                 <Final />
-              </Route>
+              </Route> */}
               <Route path="*">
                 <Error />
               </Route>

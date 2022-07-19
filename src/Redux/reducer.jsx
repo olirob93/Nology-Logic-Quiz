@@ -1,46 +1,46 @@
 import {
-  CHANGE_AMOUNT,
-  CHANGE_CATEGORY,
-  CHANGE_DIFFICULTY,
-  CHANGE_SCORE,
-  CHANGE_TYPE,
+ADD_CONTACT_DETAILS,
+ADD_PART_1
 } from "./actionTypes";
 
 const initialState = {
-  question_category: "",
-  question_difficulty: "",
-  question_type: "",
-  amount_of_question: 50,
-  score: 0,
+  fullName : '',
+  email: '',
+  partOne : {
+    questionOne: '',
+    questionTwo: '',
+    questionThree: ''
+  }
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_CATEGORY:
+    case ADD_CONTACT_DETAILS:
       return {
         ...state,
-        question_category: action.payload,
+        fullName: action.payload.fullName,
+        email: action.payload.email
       };
-    case CHANGE_DIFFICULTY:
-      return {
-        ...state,
-        question_difficulty: action.payload,
-      };
-    case CHANGE_TYPE:
-      return {
-        ...state,
-        question_type: action.payload,
-      };
-    case CHANGE_AMOUNT:
-      return {
-        ...state,
-        amount_of_question: action.payload,
-      };
-    case CHANGE_SCORE:
-      return {
-        ...state,
-        score: action.payload,
-      };
+    // case CHANGE_DIFFICULTY:
+    //   return {
+    //     ...state,
+    //     question_difficulty: action.payload,
+    //   };
+    // case CHANGE_TYPE:
+    //   return {
+    //     ...state,
+    //     question_type: action.payload,
+    //   };
+    // case CHANGE_AMOUNT:
+    //   return {
+    //     ...state,
+    //     amount_of_question: action.payload,
+    //   };
+    // case CHANGE_SCORE:
+      // return {
+      //   ...state,
+      //   score: action.payload,
+      // };
     default:
       return state;
   }
