@@ -1,31 +1,37 @@
-// import { Button, Typography } from "@mui/material";
-// import { Box } from "@mui/system";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router";
+import { Button, Typography } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
-// import { handleAmountChnage, handleScoreChnage } from "../Redux/action";
+const Final = () => {
+  const disptach = useDispatch();
+  const history = useHistory();
+  const completedAnswers = useSelector((state) => state);
 
-// const Final = () => {
-//   const disptach = useDispatch();
-//   const history = useHistory();
-//   const { score } = useSelector((state) => state);
+  console.log("completed Answers", completedAnswers);
 
-//   const handleBackToSettings = () => {
-//     disptach(handleScoreChnage(0));
-//     disptach(handleAmountChnage(50));
-//     history.push("/");
-//   };
+  const handleGoBack = () => {
+    history.push("/partThree");
+  };
 
-//   return (
-//     <Box mt={30}>
-//       <Typography variant="h3" fontWeight="bold" mb={3}>
-//         Final Score {score}
-//       </Typography>
-//       <Button onClick={handleBackToSettings} variant="outlined">
-//         back to settings!
-//       </Button>
-//     </Box>
-//   );
-// };
+  const handleFinalSubmit = (completedAnswers) => {
+    // post the answers to an API in AWS and trigger a lambda to execute the next part of the code
+    // Throw a modal once this has successfully completed and return them to the home screen
+  };
 
-// export default Final;
+  return (
+    <>
+      <Typography variant="h3" fontWeight="bold" mb={3}>
+        You are finished! to submit your quiz click Submit or if you want to
+        double check your answers click go back
+      </Typography>
+      <Button onClick={handleGoBack} variant="outlined">
+        Go back
+      </Button>
+      <Button onClick={handleFinalSubmit(completedAnswers)} variant="outlined">
+        Submit Quiz
+      </Button>
+    </>
+  );
+};
+
+export default Final;
