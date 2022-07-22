@@ -1,6 +1,8 @@
 import { Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import axios from "axios";
+const { REACT_APP_API_URL } = process.env;
 
 const Final = () => {
   const disptach = useDispatch();
@@ -13,7 +15,11 @@ const Final = () => {
     history.push("/partThree");
   };
 
-  const handleFinalSubmit = (completedAnswers) => {
+  const handleFinalSubmit = async (completedAnswers) => {
+    console.log("this runs?");
+    //the below works
+    // await axios.post(REACT_APP_API_URL, { results: completedAnswers });
+    return;
     // post the answers to an API in AWS and trigger a lambda to execute the next part of the code
     // Throw a modal once this has successfully completed and return them to the home screen
   };
@@ -24,12 +30,15 @@ const Final = () => {
         You are finished! to submit your quiz click Submit or if you want to
         double check your answers click go back
       </Typography>
-      <Button onClick={handleGoBack} variant="outlined">
+      <button onClick={() => handleGoBack()} variant="outlined">
         Go back
-      </Button>
-      <Button onClick={handleFinalSubmit(completedAnswers)} variant="outlined">
+      </button>
+      <button
+        onClick={() => handleFinalSubmit(completedAnswers)}
+        variant="outlined"
+      >
         Submit Quiz
-      </Button>
+      </button>
     </>
   );
 };

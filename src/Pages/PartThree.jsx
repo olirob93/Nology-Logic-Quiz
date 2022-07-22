@@ -121,7 +121,7 @@ const PartThree = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         {questionsJsx} <button type="submit">Next Page</button>
       </form>
-      <button onClick={handleGoBack}>Previous Page</button>
+      <button onClick={() => handleGoBack()}>Previous Page</button>
     </>
   );
 };
