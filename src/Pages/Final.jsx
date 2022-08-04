@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 import axios from "axios";
 const { REACT_APP_API_URL } = process.env;
 
-const Final = () => {
+const Final = ({ setFinishTimer, finishTimer }) => {
   const disptach = useDispatch();
   const history = useHistory();
   const completedAnswers = useSelector((state) => state);
@@ -17,11 +17,14 @@ const Final = () => {
 
   const handleFinalSubmit = async (completedAnswers) => {
     console.log("this runs?");
-    //the below works
+    // Send responses to api
     // await axios.post(REACT_APP_API_URL, { results: completedAnswers });
-    return;
-    // post the answers to an API in AWS and trigger a lambda to execute the next part of the code
+
+    // stop the timer
+    setFinishTimer(true);
     // Throw a modal once this has successfully completed and return them to the home screen
+
+    return;
   };
 
   return (
@@ -33,12 +36,14 @@ const Final = () => {
       <button onClick={() => handleGoBack()} variant="outlined">
         Go back
       </button>
-      <button
-        onClick={() => handleFinalSubmit(completedAnswers)}
-        variant="outlined"
-      >
-        Submit Quiz
-      </button>
+      {finishTimer ? null : (
+        <button
+          onClick={() => handleFinalSubmit(completedAnswers)}
+          variant="outlined"
+        >
+          Submit Quiz
+        </button>
+      )}
     </>
   );
 };

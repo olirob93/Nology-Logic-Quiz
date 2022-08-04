@@ -26,10 +26,10 @@ function App() {
 
   return (
     <div className="App">
-      {startTimer ? (
+      {startTimer && !finishTimer ? (
         <MyTimer expiryTimestamp={time} setFinishTimer={setFinishTimer} />
       ) : (
-        ""
+        <p>Quiz Finished</p>
       )}
       <Typography variant="h2" fontWeight="bold">
         Nology Logic Quiz
@@ -54,7 +54,10 @@ function App() {
                 <PartThree />
               </Route>
               <Route path="/final">
-                <Final />
+                <Final
+                  finishTimer={finishTimer}
+                  setFinishTimer={setFinishTimer}
+                />
               </Route>
             </Switch>
           </Box>
