@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Error from "./Components/404/Error";
+// import Error from "./Components/404/Error";
 import { Container, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import MyTimer from "./Components/MyTimer";

@@ -1,11 +1,10 @@
 import { Button, Typography } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import axios from "axios";
 const { REACT_APP_API_URL } = process.env;
 
 const Final = ({ setFinishTimer, finishTimer }) => {
-  const disptach = useDispatch();
   const history = useHistory();
   const completedAnswers = useSelector((state) => state);
 
